@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>
+                <a href="/users/{{ user.id }}">{{ user.username }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+<!-- if user exist -->
+{% if user %}
+    <h1>{{ user.username }}</h1>
+    <p>{{ user.email }}</p>
+    <p>Created: {{ user.username }}</p>
+    <p>Updated: {{ user.password }}</p>
+    <p><a href="/users/{{ user.id }}/edit">Edit</a></p>
+    <p><a href="/users/{{ user.id }}/delete">Delete</a></p>
+<!-- if user not exist -->
+{% else %}
+    <p>User not found</p>
+{% endif %}
+
+</html>
